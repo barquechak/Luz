@@ -15,97 +15,72 @@ header {
 }
 
 h1 {
-  margin-bottom: 10px;
-  font-size: 1.8rem; /* Increased font size */
+  margin-bottom: 20px;
+  font-size: 2rem;
 }
 
 /* Cards Container */
 .cards-container {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 15px; /* Increased gap for spacing */
-  margin-bottom: 2px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  padding: 20px;
 }
 
 .card {
-  width: 30%; /* Increased card width */
   background: #fff;
-  padding: 15px; /* Increased padding */
+  padding: 20px;
   border-radius: 8px;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-  font-size: 1rem; /* Increased font size */
-  text-align: left;
+  font-size: 1rem;
+  text-align: center;
   position: relative;
 }
 
 .card-header {
-  height: 20px;
-  width: 100%;
   border-radius: 8px 8px 0 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding-left: 11px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding: 10px;
   font-weight: bold;
-  font-size: 20px;
-  text-align: center;
+  font-size: 1.2rem;
+  color: #fff;
 }
 
 .card h2 {
-  margin: 20px 0 10px; /* Increased margins */
-  font-size: 1.2rem; /* Increased font size */
+  margin: 20px 0 10px;
+  font-size: 1.4rem;
 }
 
-.card p {
-  margin: 5px 0;
-  font-size: 1rem; /* Increased font size */
-}
-
-/* Tariff Style */
 .tariff {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem; /* Increased font size */
+  margin-top: 10px;
+  font-size: 1.5rem;
   font-weight: bold;
   text-decoration: underline;
-  padding: 10px 10px;
+}
+
+/* Time Info */
+.time-info-valle,
+.time-info-punta,
+.time-info-nocturno {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 10px;
+  border: 3px solid;
 }
 
 .time-info-valle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 5px solid orange;
-  font-size: 1.2rem; /* Increased font size */
-  font-weight: bold;
-  padding: 10px 10px;
+  border-color: orange;
 }
 
 .time-info-punta {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 5px solid red;
-  font-size: 1.2rem; /* Increased font size */
-  font-weight: bold;
-  padding: 10px 10px;
+  border-color: red;
 }
 
 .time-info-nocturno {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 5px solid green;
-  font-size: 1.2rem; /* Increased font size */
-  font-weight: bold;
-  padding: 10px 10px;
+  border-color: green;
 }
 
-/* Specific Colors */
+/* Card Header Colors */
 .card.red .card-header {
   background-color: red;
 }
@@ -118,29 +93,63 @@ h1 {
   background-color: green;
 }
 
-/* Chart Containers */
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 15px;
-  margin-top: 1px;
-  gap: 15px; /* Increased gap for spacing */
-}
-
+/* Chart Container */
 .chart-container {
-  width: 100%; /* Increased width to 95% */
-  height: 320px; /* Set a fixed height */
+  width: 90%;
+  max-width: 800px;
+  margin: 20px auto;
   background: #fff;
-  padding: 15px; /* Increased padding */
+  padding: 15px;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   display: flex;
-  justify-content: center; /* Center the chart */
-  margin-bottom: 15px; /* Space below the chart */
+  justify-content: center;
+  align-items: center;
 }
 
 canvas {
   width: 100%;
-  height: 100%; /* Make the canvas fill the chart container */
+  max-width: 100%;
+  height: auto;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .card {
+    font-size: 0.9rem;
+    padding: 15px;
+  }
+
+  .tariff {
+    font-size: 1.2rem;
+  }
+
+  .time-info-valle,
+  .time-info-punta,
+  .time-info-nocturno {
+    font-size: 1rem;
+  }
+
+  .chart-container {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.2rem;
+  }
+
+  .card {
+    font-size: 0.8rem;
+    padding: 10px;
+  }
+
+  .tariff {
+    font-size: 1rem;
+  }
 }
