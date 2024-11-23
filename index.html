@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Información Tarifas Eléctricas</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Información de Tarifas Eléctricas</h1>
+      <div class="cards-container">
+        <div class="card red">
+          <div class="card-header"></div>
+          <h2>De Punta</h2>
+          <p><strong>Horario:</strong> 10:01 a 12:30, 17:31 a 20:00</p>
+          <p class="tariff"><strong>Tarifa:</strong> ₡165.01 por kWh</p>
+          <p><strong>Porcentaje:</strong> 100%</p>
+        </div>
+        <div class="card orange">
+          <div class="card-header"></div>
+          <h2>Valle</h2>
+          <p><strong>Horario:</strong> 6:01 a 10:00, 12:31 a 17:30</p>
+          <p class="tariff"><strong>Tarifa:</strong> ₡67.65 por kWh</p>
+          <p><strong>Porcentaje:</strong> 41%</p>
+        </div>
+        <div class="card green">
+          <div class="card-header"></div>
+          <h2>Nocturno</h2>
+          <p><strong>Horario:</strong> 20:01 a 6:00</p>
+          <p class="tariff"><strong>Tarifa:</strong> ₡28.30 por kWh</p>
+          <p><strong>Porcentaje:</strong> 17%</p>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="chart-container">
+        <canvas id="barGraph"></canvas>
+      </div>
+    </main>
+    <script src="scripts.js"></script>
+  </body>
+</html>
