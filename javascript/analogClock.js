@@ -19,7 +19,7 @@ function resizeCanvas() {
 resizeCanvas();
 window.addEventListener("resize", resizeCanvas);
 
-// Function to draw the glow effect around the entire clock// Function to draw the glow effect around the entire clock
+// Function to draw the glow effect around the entire clock
 function drawGlow(ctx, radius) {
   // Create a radial gradient for the glow effect
   const grad = ctx.createRadialGradient(0, 0, 0, 0, 0, radius);
@@ -118,8 +118,7 @@ function drawHand(ctx, pos, length, width, color) {
 
 // Start the clock by calling drawClock
 function drawClock() {
-  // Clear the clock hands area but keep the background and numbers
-  ctx.clearRect(-radius, -radius, 2 * radius, 2 * radius);
+  ctx.clearRect(-radius, -radius, 2 * radius, 2 * radius); // Clear canvas
   drawTime(ctx, radius);
   requestAnimationFrame(drawClock); // Call drawClock again for animation
 }

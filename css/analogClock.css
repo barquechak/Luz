@@ -1,3 +1,12 @@
+/* Responsive Container for the Analog Clock */
+.analog-clock-container {
+  width: 100%; /* Make the container fill the parent width */
+  max-width: 300px; /* Limit the maximum size */
+  min-width: 200px; /* Ensure it doesn't get too small */
+  height: auto; /* Allow the height to adjust accordingly */
+  aspect-ratio: 1; /* Maintain a square aspect ratio */
+}
+
 #analogClock {
   display: block;
   width: 100%; /* Make sure the canvas scales with the container */
@@ -10,10 +19,11 @@
     rgba(255, 255, 255, 0.1) 40%,
     rgba(0, 0, 0, 0.1) 80%
   ); /* Subtle gradient for depth */
-}
-
-/* Styling the Numbers on the Clock */
-#analogClock {
   position: relative;
   z-index: 1; /* Ensures that numbers and hands are on top */
+}
+
+canvas:not(#analogClock) {
+  box-shadow: none;
+  border: none;
 }
