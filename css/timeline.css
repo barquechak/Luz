@@ -1,0 +1,88 @@
+.timeline-container {
+  position: relative;
+  width: 100%; /* Full width */
+  max-width: 1200px;
+  height: 60px; /* Fixed height */
+  background-color: white;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(24, 1fr); /* 24 equal columns */
+  height: 100%; /* Full height of the container */
+  width: 100%; /* Full width of the container */
+}
+
+.timeline div {
+  text-align: center;
+  font-size: 14px;
+  border-right: 1px solid #ddd; /* Separator between blocks */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  height: 100%; /* Occupy full height of grid cell */
+  width: 100%; /* Occupy full width of grid cell */
+}
+
+.timeline div:last-child {
+  border-right: none; /* Remove border for the last block */
+}
+
+.arrow {
+  position: absolute;
+  top: -19px; /* Position it slightly above the timeline */
+  left: 0;
+  width: 28px; /* Arrow size */
+  height: 28px;
+  background-color: cyan;
+  transform: translateX(-50%) rotate(45deg); /* Create diamond shape */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Shadow for visibility */
+  z-index: 10;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .timeline-container {
+    height: 50px; /* Smaller height */
+  }
+
+  .timeline div {
+    font-size: 12px; /* Smaller text */
+  }
+
+  .arrow {
+    width: 15px;
+    height: 15px;
+    top: -10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .timeline-container {
+    height: 40px; /* Further reduce height */
+  }
+
+  .timeline div {
+    font-size: 10px; /* Even smaller text */
+  }
+
+  .arrow {
+    width: 12px;
+    height: 12px;
+    top: -10px;
+  }
+}
+
+.timeline-container,
+.timeline div,
+.arrow {
+  transition: all 0.3s ease; /* Adjust duration and easing as needed */
+}
