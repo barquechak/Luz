@@ -90,3 +90,73 @@ const configBar = {
 };
 
 new Chart(ctxBar, configBar);
+
+// This code is for handling the digital clock
+
+const timeBlocks = [
+  { name: "Nocturno", color: "green", start: "20:01", end: "06:00" },
+  { name: "Valle", color: "orange", start: "06:01", end: "10:00" },
+  { name: "Punta", color: "red", start: "10:01", end: "12:30" },
+  { name: "Valle", color: "orange", start: "12:31", end: "17:30" },
+  { name: "Punta", color: "red", start: "17:31", end: "20:00" },
+];
+
+function updateClock() {
+  const now = new Date();
+
+  // Format current time as HH:mm
+  const hours = String(now.getHours()).padStart(2, "0");
+  const minutes = String(now.getMinutes()).padStart(2, "0");
+  const currentTime = `${hours}:${minutes}`;
+
+  // Display current time
+  document.getElementById("current-time").textContent = currentTime;
+
+  // Determine current block
+  const currentBlock = getCurrentBlock(currentTime);
+  const blockContainer = document.getElementById("current-block");
+
+  if (currentBlock) {
+    blockContainer.textContent = `Actualmente: ${currentBlock.name}`;
+    blockContainer.className = currentBlock.color;
+  } else {
+    blockContainer.textContent = "Bloque no determinado";
+    blockContainer.className = "";
+  }
+}
+
+function getCurrentBlock(time) {
+  const [hours, minutes] = time.split(":").map(Number);
+
+  // Convert time to minutes since midnight for comparison
+  const currentMinutes = hours * 60 + minutes;
+
+  for (const block of timeBlocks) {
+    const [startHours, startMinutes] = block.start.split(":").map(Number);
+    const [endHours, endMinutes] = block.end.split(":").map(Number);
+
+    // Calculate start and end in minutes since midnight
+    const start = startHours * 60 + startMinutes;
+    const end = endHours * 60 + endMinutes;
+
+    if (start <= end) {
+      // Same-day block
+      if (currentMinutes >= start && currentMinutes <= end) {
+        return block;
+      }
+    } else {
+      // Overnight block
+      if (currentMinutes >= start || currentMinutes <= end) {
+        return block;
+      }
+    }
+  }
+
+  return null; // No matching block
+}
+
+// Update the clock every second
+setInterval(updateClock, 1000);
+
+// Initial call to set clock immediately on load
+updateClock();
