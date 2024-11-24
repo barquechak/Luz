@@ -1,0 +1,82 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+header {
+  text-align: center;
+  padding: 15px;
+  background-color: #fff;
+  border-bottom: 2px solid #ddd;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+/* Clocks Container: Grid Layout */
+.clock-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 300px; /* Limiting the width of the clocks container */
+  margin: 0 auto;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .card {
+    font-size: 0.9rem;
+    padding: 15px;
+  }
+
+  .tariff {
+    font-size: 1.2rem;
+  }
+
+  .time-info-valle,
+  .time-info-punta,
+  .time-info-nocturno {
+    font-size: 1rem;
+  }
+
+  .chart-container {
+    padding: 10px;
+  }
+
+  .digital-clock-container,
+  .analog-clock-container {
+    max-width: 100%; /* Ensure clocks take up full width on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.2rem;
+  }
+
+  .card {
+    font-size: 0.8rem;
+    padding: 10px;
+  }
+
+  .tariff {
+    font-size: 1rem;
+  }
+}

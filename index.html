@@ -4,15 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Información Tarifas Eléctricas</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/cardsInfo.css" />
+    <link rel="stylesheet" href="css/digitalClock.css" />
+    <link rel="stylesheet" href="css/analogClock.css" />
+    <link rel="stylesheet" href="css/lineGraph.css" />
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
     <header>
       <h1>Información de Tarifas Eléctricas</h1>
-      <div id="clock-container">
-        <span id="current-time">00:00</span>
+      <div class="clock-container">
         <span id="current-block"></span>
+
+        <canvas id="analogClock" width="400" height="400"></canvas>
+        <span id="current-time">00:00</span>
       </div>
       <div class="cards-container">
         <div class="card red">
@@ -52,6 +59,8 @@
         <canvas id="barGraph"></canvas>
       </div>
     </main>
-    <script src="scripts.js"></script>
+    <script src="javascript/analogClock.js"></script>
+    <script src="javascript/digitalClock.js"></script>
+    <script src="javascript/lineGraph.js"></script>
   </body>
 </html>

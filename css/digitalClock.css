@@ -1,0 +1,25 @@
+#current-time {
+  font-size: 2rem;
+  margin-bottom: 5px;
+  margin-top: 20px;
+}
+
+#current-block {
+  background: #f4f4f4;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+#current-block.red {
+  background: red;
+}
+
+#current-block.orange {
+  background: orange;
+}
+
+#current-block.green {
+  background: green;
+}

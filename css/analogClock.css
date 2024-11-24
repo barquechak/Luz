@@ -1,0 +1,19 @@
+#analogClock {
+  display: block;
+  width: 100%; /* Make sure the canvas scales with the container */
+  height: auto;
+  border-radius: 50%; /* To keep the clock in a perfect circular shape */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 6px solid #333; /* Clock border */
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.1) 40%,
+    rgba(0, 0, 0, 0.1) 80%
+  ); /* Subtle gradient for depth */
+}
+
+/* Styling the Numbers on the Clock */
+#analogClock {
+  position: relative;
+  z-index: 1; /* Ensures that numbers and hands are on top */
+}
