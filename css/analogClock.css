@@ -14,11 +14,11 @@
   height: auto;
   border-radius: 50%; /* To keep the clock in a perfect circular shape */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border: 61px solid rgb(4, 4, 4); /* Clock border */
+  border: 6px solid black !important; /* Clock border */
   background: radial-gradient(
     circle,
-    rgba(255, 255, 255, 0.1) 40%,
-    rgba(0, 0, 0, 0.1) 80%
+    black,
+    black
   ); /* Subtle gradient for depth */
   position: relative;
   z-index: 1; /* Ensures that numbers and hands are on top */
@@ -27,4 +27,8 @@
 canvas:not(#analogClock) {
   box-shadow: none;
   border: none;
+}
+
+canvas.no-darkreader {
+  filter: none !important; /* Disable Dark Reader's color inversion */
 }

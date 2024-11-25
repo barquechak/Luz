@@ -17,7 +17,12 @@
       <div class="clock-container">
         <span id="current-block"></span>
         <div class="analog-clock-container">
-          <canvas id="analogClock" width="400" height="400"></canvas>
+          <canvas
+            id="analogClock"
+            class="no-darkreader"
+            width="400"
+            height="400"
+          ></canvas>
         </div>
         <div class="timeline-container">
           <div class="timeline">
@@ -63,7 +68,7 @@
           <div class="tariff">₡165.01 por kWh</div>
         </div>
         <div class="card orange">
-          <div class="card-header">Cost medio kWh</div>
+          <div class="card-header">Costo medio kWh</div>
           <h2></h2>
           <div class="time-info-valle">
             06:01 A.M. a 10:00 A.M.
@@ -73,7 +78,7 @@
           <div class="tariff">₡67.65 por kWh</div>
         </div>
         <div class="card green">
-          <div class="card-header">Cost bajo kWh</div>
+          <div class="card-header">Costo bajo kWh</div>
           <h2></h2>
           <div class="time-info-nocturno">
             08:01 P.M. a
@@ -89,11 +94,14 @@
         <canvas id="barGraph"></canvas>
       </div>
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
-    <script src="javascript/analogClock.js"></script>
-    <script src="javascript/digitalClock.js"></script>
-    <script src="javascript/barGraph.js"></script>
-    <script src="javascript/timeline.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"
+      defer
+    ></script>
+    <script src="javascript/analogClock.js" defer></script>
+    <script src="javascript/digitalClock.js" defer></script>
+    <script src="javascript/barGraph.js" defer></script>
+    <script src="javascript/timeline.js" defer></script>
   </body>
 </html>

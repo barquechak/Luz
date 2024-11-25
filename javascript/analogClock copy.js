@@ -28,14 +28,11 @@ function darkenBlockColor(color) {
 function updateClockBorderColor(currentBlock) {
   const clockElement = document.getElementById("analogClock");
 
-  if (clockElement) {
-    let newColor = currentBlock ? currentBlock.color : "#333"; // Default color
-    clockElement.style.setProperty(
-      "border",
-      `6px solid dark${newColor}`,
-      "important"
-    );
+  let newColor = "";
+  if (currentBlock.color) {
+    newColor = darkenBlockColor(currentBlock.color);
   }
+  clockElement.style.border = `6px solid ${newColor}`;
 }
 
 // Function to draw the glow effect around the entire clock
