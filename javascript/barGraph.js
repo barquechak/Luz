@@ -1,6 +1,9 @@
-const ctxBar = document.getElementById("barGraph").getContext("2d");
+const barCanvas = document.getElementById("barGraph");
+const ctxBar = barCanvas.getContext("2d");
 
-// Data for the graph (remains unchanged)
+let barChartInstance = null; // Store the chart instance globally
+
+// Data for the graph
 const dataBar = {
   labels: [
     "1 AM",
@@ -67,13 +70,13 @@ const dataBar = {
   ],
 };
 
-// Configure the chart with responsive options
+// Configure the chart
 const configBar = {
   type: "bar",
   data: dataBar,
   options: {
-    responsive: true, // Ensure the chart is responsive
-    maintainAspectRatio: false, // Prevent chart from maintaining aspect ratio when resizing
+    responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: { display: false },
     },
@@ -92,12 +95,20 @@ const configBar = {
   },
 };
 
-// Initialize the chart
-new Chart(ctxBar, configBar);
+// Function to create or recreate the chart
+function createBarGraph() {
+  if (barChartInstance) {
+    barChartInstance.destroy(); // Destroy the existing chart instance
+  }
+  barChartInstance = new Chart(ctxBar, configBar); // Create a new chart instance
+}
 
-// Resize chart on window resize
-window.addEventListener("resize", function () {
-  ctxBar.canvas.width = window.innerWidth * 0.9; // Adjust width on resize
-  ctxBar.canvas.height = window.innerHeight * 0.4; // Adjust height on resize
-  new Chart(ctxBar, configBar); // Re-render chart with updated size
+// Initial render
+createBarGraph();
+
+// Resize listener to handle chart resizing
+window.addEventListener("resize", () => {
+  barCanvas.width = window.innerWidth * 0.9;
+  barCanvas.height = window.innerHeight * 0.4;
+  createBarGraph(); // Recreate the chart with updated size
 });

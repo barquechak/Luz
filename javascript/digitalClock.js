@@ -1,4 +1,4 @@
-const timeBlocks = [
+const timeBlocksDigital = [
   { name: "₡28.30 por kWh", color: "green", start: "20:01", end: "06:00" },
   { name: "₡67.65 por kWh", color: "orange", start: "06:01", end: "10:00" },
   { name: "₡165.01 por kWh", color: "red", start: "10:01", end: "12:30" },
@@ -43,7 +43,7 @@ function updateClock() {
 function getCurrentBlock(now) {
   const currentMinutes = now.getHours() * 60 + now.getMinutes(); // Minutes since midnight
 
-  for (const block of timeBlocks) {
+  for (const block of timeBlocksDigital) {
     // Convert start and end times to minutes since midnight for comparison
     const [startHours, startMinutes] = block.start.split(":").map(Number);
     const [endHours, endMinutes] = block.end.split(":").map(Number);

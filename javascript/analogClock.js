@@ -20,39 +20,19 @@ resizeCanvas();
 window.addEventListener("resize", resizeCanvas);
 
 // Utility function to darken a color
-function darkenColor(color, percentage) {
-  const match = color.match(/^#([0-9a-f]{3}|[0-9a-f]{6})$/i);
-  if (!match) return color; // If the input is not a hex color, return it as is
-
-  const hex = match[1];
-  const rgb =
-    hex.length === 3
-      ? [
-          parseInt(hex[0] + hex[0], 16),
-          parseInt(hex[1] + hex[1], 16),
-          parseInt(hex[2] + hex[2], 16),
-        ]
-      : [
-          parseInt(hex.slice(0, 2), 16),
-          parseInt(hex.slice(2, 4), 16),
-          parseInt(hex.slice(4, 6), 16),
-        ];
-
-  const darkened = rgb.map((value) =>
-    Math.max(0, value - Math.round(value * (percentage / 100)))
-  );
-  return `#${darkened.map((v) => v.toString(16).padStart(2, "0")).join("")}`;
+function darkenBlockColor(color) {
+  return `dark${color}`;
 }
 
 // Function to update the border color dynamically
 function updateClockBorderColor(currentBlock) {
   const clockElement = document.getElementById("analogClock");
-  if (currentBlock) {
-    const darkerColor = darkenColor(currentBlock.color, 30); // 30% darker
-    clockElement.style.border = `6px solid ${darkerColor}`;
-  } else {
-    clockElement.style.border = "6px solid black"; // Default fallback
+
+  let newColor = "";
+  if (currentBlock.color) {
+    newColor = darkenBlockColor(currentBlock.color);
   }
+  clockElement.style.border = `6px solid ${newColor}`;
 }
 
 // Function to draw the glow effect around the entire clock
@@ -151,16 +131,17 @@ function drawHand(ctx, pos, length, width, color) {
   ctx.rotate(-pos);
 }
 
+// Time blocks with updated colors
+const timeBlocks = [
+  { name: "₡28.30 por kWh", color: "green", start: "20:01", end: "06:00" }, // Green
+  { name: "₡67.65 por kWh", color: "orange", start: "06:01", end: "10:00" }, // Orange
+  { name: "₡165.01 por kWh", color: "red", start: "10:01", end: "12:30" }, // Red
+  { name: "₡67.65 por kWh", color: "orange", start: "12:31", end: "17:30" }, // Orange
+  { name: "₡165.01 por kWh", color: "red", start: "17:31", end: "20:00" }, // Red
+];
+
 // Function to determine the current block
 function getCurrentBlock(now) {
-  const timeBlocks = [
-    { name: "₡28.30 por kWh", color: "green", start: "20:01", end: "06:00" },
-    { name: "₡67.65 por kWh", color: "orange", start: "06:01", end: "10:00" },
-    { name: "₡165.01 por kWh", color: "red", start: "10:01", end: "12:30" },
-    { name: "₡67.65 por kWh", color: "orange", start: "12:31", end: "17:30" },
-    { name: "₡165.01 por kWh", color: "red", start: "17:31", end: "20:00" },
-  ];
-
   const currentMinutes = now.getHours() * 60 + now.getMinutes();
 
   for (const block of timeBlocks) {

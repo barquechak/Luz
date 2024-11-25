@@ -1,4 +1,5 @@
 /* Responsive Container for the Analog Clock */
+
 .analog-clock-container {
   width: 100%; /* Make the container fill the parent width */
   max-width: 250px; /* Limit the maximum size */
@@ -13,7 +14,7 @@
   height: auto;
   border-radius: 50%; /* To keep the clock in a perfect circular shape */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border: 6px solid rgb(138, 216, 146); /* Clock border */
+  border: 61px solid rgb(4, 4, 4); /* Clock border */
   background: radial-gradient(
     circle,
     rgba(255, 255, 255, 0.1) 40%,
