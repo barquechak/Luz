@@ -94,7 +94,7 @@ function drawNumbers(ctx, radius) {
   }
 }
 
-// Function to draw the clock hands
+// Function to draw the clock hands with a more stylish design
 function drawTime(ctx, radius, borderColor) {
   drawFace(ctx, radius, borderColor);
   drawNumbers(ctx, radius);
@@ -109,17 +109,18 @@ function drawTime(ctx, radius, borderColor) {
     ((hour % 12) * Math.PI) / 6 +
     (minute * Math.PI) / (6 * 60) +
     (second * Math.PI) / (360 * 60);
-  drawHand(ctx, hour, radius * 0.5, radius * 0.07, borderColor);
+  drawStylishHand(ctx, hour, radius * 0.5, radius * 0.1, borderColor); // Thicker hour hand
 
   minute = (minute * Math.PI) / 30 + (second * Math.PI) / (30 * 60);
-  drawHand(ctx, minute, radius * 0.8, radius * 0.07, borderColor);
+  drawStylishHand(ctx, minute, radius * 0.8, radius * 0.07, borderColor); // Slightly thinner minute hand
 
   second = (second * Math.PI) / 30;
-  drawHand(ctx, second, radius * 0.9, radius * 0.02, "#ff0000");
+  drawStylishHand(ctx, second, radius * 0.9, radius * 0.02, "#ff0000"); // Thin second hand
 }
 
-// Function to draw individual hands
-function drawHand(ctx, pos, length, width, color) {
+// Function to draw stylish hands (with a line in the middle)
+function drawStylishHand(ctx, pos, length, width, color) {
+  // Draw the main hand
   ctx.beginPath();
   ctx.lineWidth = width;
   ctx.lineCap = "round";
@@ -128,6 +129,17 @@ function drawHand(ctx, pos, length, width, color) {
   ctx.lineTo(0, -length);
   ctx.strokeStyle = color;
   ctx.stroke();
+
+  // Draw the small center line (pivot point)
+  const pivotLength = width * 0.4; // Adjust this for a better effect
+  ctx.beginPath();
+  ctx.lineWidth = width * 0.3; // Thin line for the center
+  ctx.moveTo(0, 0);
+  ctx.lineTo(0, pivotLength);
+  ctx.strokeStyle = color;
+  ctx.stroke();
+
+  // Reset rotation to avoid affecting other elements
   ctx.rotate(-pos);
 }
 
