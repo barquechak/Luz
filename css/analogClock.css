@@ -1,8 +1,8 @@
 /* Responsive Container for the Analog Clock */
 .analog-clock-container {
   width: 100%; /* Make the container fill the parent width */
-  max-width: 300px; /* Limit the maximum size */
-  min-width: 200px; /* Ensure it doesn't get too small */
+  max-width: 250px; /* Limit the maximum size */
+  min-width: 100px; /* Ensure it doesn't get too small */
   height: auto; /* Allow the height to adjust accordingly */
   aspect-ratio: 1; /* Maintain a square aspect ratio */
 }
@@ -13,7 +13,7 @@
   height: auto;
   border-radius: 50%; /* To keep the clock in a perfect circular shape */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border: 6px solid #333; /* Clock border */
+  border: 6px solid rgb(138, 216, 146); /* Clock border */
   background: radial-gradient(
     circle,
     rgba(255, 255, 255, 0.1) 40%,

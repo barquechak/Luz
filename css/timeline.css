@@ -23,7 +23,7 @@
 .timeline div {
   text-align: center;
   font-size: 14px;
-  border-right: 1px solid #ddd; /* Separator between blocks */
+  border-right: 1px solid #dddddd; /* Separator between blocks */
   display: flex;
   align-items: center;
   justify-content: center;

@@ -1,9 +1,9 @@
 const timeBlocks = [
-  { name: "Nocturno", color: "green", start: "20:01", end: "06:00" },
-  { name: "Valle", color: "orange", start: "06:01", end: "10:00" },
-  { name: "Punta", color: "red", start: "10:01", end: "12:30" },
-  { name: "Valle", color: "orange", start: "12:31", end: "17:30" },
-  { name: "Punta", color: "red", start: "17:31", end: "20:00" },
+  { name: "₡28.30 por kWh", color: "green", start: "20:01", end: "06:00" },
+  { name: "₡67.65 por kWh", color: "orange", start: "06:01", end: "10:00" },
+  { name: "₡165.01 por kWh", color: "red", start: "10:01", end: "12:30" },
+  { name: "₡67.65 por kWh", color: "orange", start: "12:31", end: "17:30" },
+  { name: "₡165.01 por kWh", color: "red", start: "17:31", end: "20:00" },
 ];
 
 function updateClock() {
