@@ -1,15 +1,17 @@
 function createTooltipContent(hour, hourPeriod, color, tariffCost) {
   return `
-        <div class="hour-period-container">${hour} ${hourPeriod}</div><br/>
-        <div class="color-tariff-container"> <div class="tooltip-square" style="background-color: ${color};" data-darkreader-ignore></div>
-        Costo Tarifa (₡): ${tariffCost}</div>
-       
-      `;
+    <div class="no-darkreader data-darkreader-ignore">
+      <div class="hour-period-container no-darkreader">${hour} ${hourPeriod}</div><br/>
+      <div class="color-tariff-container no-darkreader">
+        <div class="tooltip-square no-darkreader" style="background-color: ${color}; border: 1px solid white !important;" data-darkreader-ignore></div>
+        Costo Tarifa (₡): ${tariffCost}
+      </div>
+    </div>
+  `;
 }
 
 //Create the ToolTips for each block of hours in the timeline
 function createTooltips() {
-  console.log("here");
   const totalBlocks = 24;
 
   for (let i = 0; i < totalBlocks; i++) {

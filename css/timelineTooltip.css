@@ -4,12 +4,16 @@
   cursor: pointer;
 }
 
+div.no-darkreader {
+  filter: none !important; /* Disable Dark Reader's color inversion */
+}
+
 .tooltip-square {
   display: inline-block;
-  border: 1px solid white;
   width: 15px;
   height: 15px;
   margin-right: 2px;
+  border: 1px solid white !important;
 }
 
 .custom-tooltip {
