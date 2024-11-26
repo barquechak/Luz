@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="css/analogClock.css" />
     <link rel="stylesheet" href="css/barGraph.css" />
     <link rel="stylesheet" href="css/timeline.css" />
+    <link rel="stylesheet" href="css/timelineTooltip.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/hint.css@2.6.0/hint.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header>
@@ -27,32 +32,8 @@
         <div class="timeline-container">
           <div class="timeline">
             <!-- 24-hour timeline -->
-            <div id="block1">12</div>
-            <div id="block2">1</div>
-            <div id="block3">2</div>
-            <div id="block4">3</div>
-            <div id="block5">4</div>
-            <div id="block6">5</div>
-            <div id="block7">6</div>
-            <div id="block8">7</div>
-            <div id="block9">8</div>
-            <div id="block10">9</div>
-            <div id="block11">10</div>
-            <div id="block12">11</div>
-            <div id="block13">12<br /></div>
-            <div id="block14">1<br /></div>
-            <div id="block15">2<br /></div>
-            <div id="block16">3<br /></div>
-            <div id="block17">4<br /></div>
-            <div id="block18">5<br /></div>
-            <div id="block19">6<br /></div>
-            <div id="block20">7<br /></div>
-            <div id="block21">8<br /></div>
-            <div id="block22">9<br /></div>
-            <div id="block23">10<br /></div>
-            <div id="block24">11<br /></div>
           </div>
-          <div class="arrow"></div>
+          <!-- arrow -->
         </div>
         <span id="current-time">00:00</span>
       </div>
@@ -103,5 +84,6 @@
     <script src="javascript/digitalClock.js" defer></script>
     <script src="javascript/barGraph.js" defer></script>
     <script src="javascript/timeline.js" defer></script>
+    <script src="javascript/timelineTooltip.js" defer></script>
   </body>
 </html>

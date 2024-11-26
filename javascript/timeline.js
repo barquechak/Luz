@@ -1,9 +1,4 @@
-function updateTimeline() {
-  const now = new Date();
-  const currentHour = now.getHours();
-  const currentMinute = now.getMinutes();
-  const currentSecond = now.getSeconds();
-
+function createTimeline() {
   // Define the tariff periods with their colors
   const tariffBlocks = [
     { start: 20, end: 6, color: "green" }, // Nocturno: 8 PM - 6 AM
@@ -13,10 +8,20 @@ function updateTimeline() {
     { start: 17.5, end: 20, color: "red" }, // Punta: 5:30 PM - 8 PM
   ];
 
-  // Apply color to each block based on the tariff periods
-  for (let i = 0; i < 24; i++) {
-    const block = document.getElementById(`block${i + 1}`);
-    const hour = i; // Hour corresponding to the block
+  const tariffCosts = { nocturno: 28.3, valle: 67.65, punta: 165.01 };
+
+  const totalBlocks = 24;
+
+  //Get the timeline container
+  const timeline = document.querySelector(".timeline");
+
+  for (let i = 0; i < totalBlocks; i++) {
+    const blockDiv = document.createElement("div");
+    blockDiv.classList.add("tooltip"); // Add tooltip class
+    blockDiv.id = `block${i + 1}`; // Add block ID
+    blockDiv.innerHTML = i + 1 > 12 ? `${i + 1 - 12}` : `${i + 1}`; // Add block number
+
+    const hour = i + 1; // Hour corresponding to the block
     let color = "";
 
     for (const tariff of tariffBlocks) {
@@ -30,8 +35,38 @@ function updateTimeline() {
         break;
       }
     }
-    block.style.backgroundColor = color;
+
+    blockDiv.style.backgroundColor = color;
+
+    // Add data attribute with the color of the block
+    blockDiv.setAttribute("data-color", color);
+    // Add data attribute with the hour
+    blockDiv.setAttribute("data-hour", i + 1 > 12 ? i + 1 - 12 : i + 1);
+    //Add data attribute with am or pm
+    blockDiv.setAttribute("data-hour-period", i + 1 > 12 ? "PM" : "AM");
+
+    const tariffPrice =
+      color === "red"
+        ? tariffCosts.punta
+        : color === "orange"
+        ? tariffCosts.valle
+        : tariffCosts.nocturno;
+
+    // Add data attribute with the tariff price
+    blockDiv.setAttribute("data-tariff-cost", tariffPrice);
+    timeline.appendChild(blockDiv);
   }
+  const arrowDiv = document.createElement("div");
+  arrowDiv.classList.add("arrow");
+  const timelineContainer = document.querySelector(".timeline-container");
+  timelineContainer.appendChild(arrowDiv);
+}
+
+function updateTimeline() {
+  const now = new Date();
+  const currentHour = now.getHours();
+  const currentMinute = now.getMinutes();
+  const currentSecond = now.getSeconds();
 
   // Update the arrow position
   const currentTimeInSeconds =
@@ -47,6 +82,8 @@ function updateTimeline() {
     easing: "linear",
   });
 }
+
+createTimeline();
 
 // Update every second
 setInterval(updateTimeline, 1000);

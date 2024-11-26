@@ -1,0 +1,46 @@
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.tooltip-square {
+  display: inline-block;
+  border: 1px solid white;
+  width: 15px;
+  height: 15px;
+  margin-right: 2px;
+}
+
+.custom-tooltip {
+  position: absolute;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.85
+  ); /* Intense black with 15% transparency */
+  color: white;
+  padding: 6px;
+  border-radius: 5px;
+  font-size: 14px;
+  z-index: 9999;
+  white-space: nowrap;
+  display: none; /* Initially hidden */
+  max-width: 200px;
+}
+
+.color-tariff-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+}
+
+.hour-period-container {
+  font-weight: 900;
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+}
