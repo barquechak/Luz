@@ -16,12 +16,16 @@ function createTimeline() {
   const timeline = document.querySelector(".timeline");
 
   for (let i = 0; i < totalBlocks; i++) {
+    const hour = i;
+
     const blockDiv = document.createElement("div");
     blockDiv.classList.add("tooltip"); // Add tooltip class
     blockDiv.id = `block${i + 1}`; // Add block ID
-    blockDiv.innerHTML = i + 1 > 12 ? `${i + 1 - 12}` : `${i + 1}`; // Add block number
 
-    const hour = i + 1; // Hour corresponding to the block
+    const convertedHour = i % 12 || 12;
+
+    blockDiv.innerHTML = convertedHour; // Add block number
+
     let color = "";
 
     for (const tariff of tariffBlocks) {
