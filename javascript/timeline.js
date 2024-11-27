@@ -82,7 +82,7 @@ function createTimeline() {
     }
 
     if (i + 1 !== 13 || i + 1 !== 17) {
-      blockDiv.style.backgroundColor = color;
+      blockDiv.style.setProperty("background-color", color); // Add block color
     }
 
     // Add data attribute with the color of the block

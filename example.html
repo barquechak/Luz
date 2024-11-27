@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Split Div</title>
+    <style>
+      .square-container {
+        width: 100px;
+        height: 100px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .left-half,
+      .right-half {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 50%;
+      }
+
+      .left-half {
+        left: 0;
+        background-color: green;
+      }
+
+      .right-half {
+        right: 0;
+        background-color: red;
+      }
+
+      .content {
+        position: relative;
+        z-index: 1; /* Ensures the number is above the background layers */
+        font-size: 24px;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="square-container">
+      <div class="left-half"></div>
+      <div class="right-half"></div>
+      <div class="content">1</div>
+    </div>
+  </body>
+</html>

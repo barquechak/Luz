@@ -16,6 +16,7 @@ function createTooltips() {
 
   for (let i = 0; i < totalBlocks; i++) {
     const tooltipDiv = document.getElementById(`block${i + 1}`);
+
     const color = tooltipDiv.dataset.color;
     const hour = tooltipDiv.dataset.hour;
     const tariffCost = tooltipDiv.dataset.tariffCost;
@@ -33,13 +34,68 @@ function createTooltips() {
       tariffCost
     );
 
-    // Add event listeners to show and hide the tooltip
-    tooltipDiv.addEventListener("mouseenter", () =>
-      updateTooltipContent(tooltipContainer, divContent, tooltipDiv)
-    );
-    tooltipDiv.addEventListener("mouseleave", () =>
-      hideTooltip(tooltipContainer)
-    );
+    if (i === 12 || i === 17) {
+      const leftHalf = tooltipDiv.querySelector(".square-container .left-half");
+      const rightHalf = tooltipDiv.querySelector(
+        ".square-container .right-half"
+      );
+
+      let divContentLeft = "";
+      let divContentRight = "";
+
+      if (i === 12) {
+        divContentLeft = createTooltipContent(
+          "12:00 a 12:30",
+          "PM",
+          "red",
+          "165.01"
+        );
+        divContentRight = createTooltipContent(
+          "12:31 a 1:00",
+          "PM",
+          "orange",
+          "67.65"
+        );
+      }
+
+      if (i === 17) {
+        divContentLeft = createTooltipContent(
+          "5:00 a 5:30",
+          "PM",
+          "orange",
+          "67.65"
+        );
+        divContentRight = createTooltipContent(
+          "5:31 a 6:00",
+          "PM",
+          "red",
+          "165.01"
+        );
+      }
+
+      // Add event listeners to show and hide the tooltip
+      leftHalf.addEventListener("mouseenter", () =>
+        updateTooltipContent(tooltipContainer, divContentLeft, tooltipDiv)
+      );
+      leftHalf.addEventListener("mouseleave", () =>
+        hideTooltip(tooltipContainer)
+      );
+      // Add event listeners to show and hide the tooltip
+      rightHalf.addEventListener("mouseenter", () =>
+        updateTooltipContent(tooltipContainer, divContentRight, tooltipDiv)
+      );
+      rightHalf.addEventListener("mouseleave", () =>
+        hideTooltip(tooltipContainer)
+      );
+    } else {
+      // Add event listeners to show and hide the tooltip
+      tooltipDiv.addEventListener("mouseenter", () =>
+        updateTooltipContent(tooltipContainer, divContent, tooltipDiv)
+      );
+      tooltipDiv.addEventListener("mouseleave", () =>
+        hideTooltip(tooltipContainer)
+      );
+    }
   }
 }
 

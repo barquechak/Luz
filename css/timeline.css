@@ -67,6 +67,7 @@
     --left-color,
     red
   ); /* Add !important to enforce the color */
+  z-index: 0;
 }
 
 .square-container .right-half {
@@ -79,6 +80,7 @@
     --right-color,
     green
   ); /* Add !important to enforce the color */
+  z-index: 0;
 }
 
 .square-container .content {
@@ -86,6 +88,7 @@
   z-index: 1; /* Ensures the number is above the background layers */
 
   color: white;
+  pointer-events: none;
 }
 
 /* Responsive adjustments */
