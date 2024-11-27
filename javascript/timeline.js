@@ -22,9 +22,50 @@ function createTimeline() {
     blockDiv.classList.add("tooltip"); // Add tooltip class
     blockDiv.id = `block${i + 1}`; // Add block ID
 
+    if (i === 12 || i === 17) {
+      // Create a container for split the colors of that hour
+      const squareContainer = document.createElement("div");
+      squareContainer.classList.add("square-container");
+
+      // First half of the hour
+      const leftHalf = document.createElement("div");
+      leftHalf.classList.add("left-half");
+
+      if (i === 12) {
+        leftHalf.style.setProperty("--left-color", "red");
+      } else if (i === 17) {
+        leftHalf.style.setProperty("--left-color", "orange");
+      }
+
+      //Second half of the hour
+      const rightHalf = document.createElement("div");
+      rightHalf.classList.add("right-half");
+
+      if (i === 12) {
+        rightHalf.style.setProperty("--right-color", "orange");
+      } else if (i === 17) {
+        rightHalf.style.setProperty("--right-color", "red");
+      }
+
+      //The number in the timeline
+      const content = document.createElement("div");
+      content.classList.add("content");
+      content.textContent = i + 1 === 13 ? 12 : 5;
+
+      // Append the left side, right side and content to the container
+      squareContainer.appendChild(leftHalf);
+      squareContainer.appendChild(rightHalf);
+      squareContainer.appendChild(content);
+
+      //Add the square container to the block
+      blockDiv.appendChild(squareContainer);
+    }
+
     const convertedHour = i % 12 || 12;
 
-    blockDiv.innerHTML = convertedHour; // Add block number
+    if (i !== 12 && i !== 17) {
+      blockDiv.textContent = convertedHour; // Add block number
+    }
 
     let color = "";
 
@@ -40,12 +81,14 @@ function createTimeline() {
       }
     }
 
-    blockDiv.style.backgroundColor = color;
+    if (i + 1 !== 13 || i + 1 !== 17) {
+      blockDiv.style.backgroundColor = color;
+    }
 
     // Add data attribute with the color of the block
     blockDiv.setAttribute("data-color", color);
     // Add data attribute with the hour
-    blockDiv.setAttribute("data-hour", i + 1 > 12 ? i + 1 - 12 : i + 1);
+    blockDiv.setAttribute("data-hour", convertedHour);
     //Add data attribute with am or pm
     blockDiv.setAttribute("data-hour-period", i + 1 > 12 ? "PM" : "AM");
 

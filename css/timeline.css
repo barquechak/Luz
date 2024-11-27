@@ -36,28 +36,6 @@
   border-right: none; /* Remove border for the last block */
 }
 
-.timeline div::after {
-  visibility: visible;
-  opacity: 1;
-}
-
-.timeline div::after {
-  content: attr(data-tipi);
-  position: absolute;
-  top: -35px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: rgba(0, 0, 0, 0.7);
-  color: white;
-  padding: 5px 10px;
-  border-radius: 3px;
-  font-size: 12px;
-  white-space: nowrap;
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
 .arrow {
   position: absolute;
   top: -19px; /* Position it slightly above the timeline */
@@ -68,6 +46,46 @@
   transform: translateX(-50%) rotate(45deg); /* Create diamond shape */
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Shadow for visibility */
   z-index: 10;
+}
+.square-container {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.square-container .left-half {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  background-color: var(
+    --left-color,
+    red
+  ); /* Add !important to enforce the color */
+}
+
+.square-container .right-half {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  background-color: var(
+    --right-color,
+    green
+  ); /* Add !important to enforce the color */
+}
+
+.square-container .content {
+  position: relative;
+  z-index: 1; /* Ensures the number is above the background layers */
+
+  color: white;
 }
 
 /* Responsive adjustments */
